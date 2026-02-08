@@ -1,0 +1,117 @@
+version: "3.9"
+
+services:
+  # PHP-FPM / Laravel App
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: controverso-php83
+    container_name: controverso-app
+    restart: unless-stopped
+    tty: true
+    working_dir: /var/www
+    environment:
+      SERVICE_NAME: controverso-app
+      SERVICE_TAGS: dev
+      APP_ENV: local
+      APP_DEBUG: "true"
+      APP_URL: http://localhost
+    volumes:
+      - ./src:/var/www:cached
+      - ./docker/settings/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    depends_on:
+      - db
+      - redis
+      - mailpit
+    networks:
+      - app-network
+    ports:
+      - "5173:5173"
+
+  # Mailpit
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: controverso-mailpit
+    restart: unless-stopped
+    ports:
+      - "1025:1025"   # porta SMTP
+      - "8081:8025"   # interfaccia web su http://localhost:8081
+    networks:
+      - app-network
+
+  # MySQL Database
+  db:
+    image: mysql:8.0
+    container_name: controverso-db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: controverso
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: laravel
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - app-network
+
+  # phpMyAdmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: controverso-phpmyadmin
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: root
+      UPLOAD_LIMIT: 500000000
+    networks:
+      - app-network
+
+  # Nginx Webserver
+  webserver:
+    image: nginx:alpine
+    container_name: controverso-webserver
+    restart: unless-stopped
+    tty: true
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./src:/var/www:cached
+      - ./docker/settings/nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - app-network
+
+  # Redis (cache / queue / session)
+  redis:
+    image: redis:alpine
+    container_name: controverso-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./docker/redis:/data
+    networks:
+      - app-network
+
+# Docker Networks
+networks:
+  app-network:
+    driver: bridge
+
+# Docker Volumes
+volumes:
+  dbdata:
+    driver: local
