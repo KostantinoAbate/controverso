@@ -1,0 +1,38 @@
+#footer::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 50%;
+    z-index: 5;
+    @apply bg-linear-to-t from-base-content to-transparent;
+}
+#footer::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    bottom: 0;
+    z-index: 5;
+    @apply bg-base-content;
+}
+
+#footer-background {
+    @apply z-30 absolute inset-0 backdrop-blur-lg;
+    mask-image: linear-gradient(
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.5) 10%,
+        rgba(0, 0, 0, 0.8) 20%,
+        rgba(0, 0, 0, 1) 30%,
+        rgb(0, 0, 0)
+    );
+    -webkit-mask-image: linear-gradient(
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.5) 10%,
+        rgba(0, 0, 0, 0.8) 20%,
+        rgba(0, 0, 0, 1) 30%,
+        rgb(0, 0, 0)
+    );
+}

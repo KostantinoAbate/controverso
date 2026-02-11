@@ -1,0 +1,26 @@
+.input::placeholder {
+    @apply text-sm font-light;
+}
+
+.label-text {
+    @apply select-none;
+}
+
+.label-text:not(.label-text-light) {
+    @apply font-medium;
+}
+
+req {
+    @apply text-primary;
+}
+
+[data-select-dropdown] div:first-of-type {
+    @apply bg-base-200;
+}
+.advance-select-option:hover div:first-of-type {
+    @apply bg-transparent!;
+}
+
+.input {
+    @apply text-sm;
+}

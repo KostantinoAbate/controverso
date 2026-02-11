@@ -1,0 +1,35 @@
+#nav-icon {
+    @apply w-7.5 h-5.5 relative my-6.25 mx-auto rotate-0 transition-transform duration-150 ease-in-out cursor-pointer;
+}
+
+#nav-icon span {
+    @apply block absolute h-1 w-full bg-primary rounded-lg opacity-100 left-0 rotate-0 transition-all duration-150 ease-in-out;
+}
+
+#nav-icon span:nth-child(1) {
+    @apply top-0;
+}
+
+#nav-icon span:nth-child(2),#nav-icon span:nth-child(3) {
+    @apply top-2.25;
+}
+
+#nav-icon span:nth-child(4) {
+    @apply top-4.5;
+}
+
+#nav-icon.open span:nth-child(1) {
+    @apply top-2.25 w-0 left-1/2;
+}
+
+#nav-icon.open span:nth-child(2) {
+    @apply rotate-45;
+}
+
+#nav-icon.open span:nth-child(3) {
+    @apply -rotate-45
+}
+
+#nav-icon.open span:nth-child(4) {
+    @apply top-2.25 w-0 left-1/2;
+}

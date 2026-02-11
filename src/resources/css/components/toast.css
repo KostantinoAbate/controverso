@@ -1,0 +1,72 @@
+.toast {
+    pointer-events: auto;
+    opacity: 0;
+    transform: translateX(40px);
+    transition:
+        opacity 0.1s ease-out,
+        transform 0.1s ease-out;
+    @apply flex flex-row justify-between items-start gap-4 p-3 py-1.5 rounded-xl border bg-base-100 relative overflow-hidden text-sm max-w-full;
+}
+.toast.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+.toast.hide {
+    opacity: 0;
+    transform: translateX(40px);
+}
+.toast .toast-content {
+    @apply flex flex-col justify-start items-start gap-1;
+}
+.toast .toast-content p {
+    @apply m-0 p-0;
+}
+.toast .toast-icon {
+    @apply flex flex-col justify-center items-center;
+}
+.toast .toast-close, .toast .dyn-toast-close {
+    @apply flex flex-col justify-center items-center opacity-80 transition-opacity cursor-pointer;
+}
+.toast .toast-close:hover, .toast .dyn-toast-close:hover {
+    @apply opacity-100;
+}
+.toast::before {
+    content: '';
+    @apply w-full h-full absolute left-0 top-0 bg-base-300/20;
+}
+.toast.toast-error {
+    @apply border-error;
+}
+.toast.toast-error::before {
+    @apply bg-error/20;
+}
+.toast.toast-error .toast-close, .toast.toast-error .dyn-toast-close, .toast.toast-error .toast-icon{
+    @apply text-error;
+}
+.toast.toast-success {
+    @apply border-success;
+}
+.toast.toast-success::before {
+    @apply bg-success/20;
+}
+.toast.toast-success .toast-close, .toast.toast-success .dyn-toast-close, .toast.toast-success .toast-icon {
+    @apply text-success;
+}
+.toast.toast-warning {
+    @apply border-warning;
+}
+.toast.toast-warning::before {
+    @apply bg-warning/20;
+}
+.toast.toast-warning .toast-close, .toast.toast-warning .dyn-toast-close, .toast.toast-warning .toast-icon {
+    @apply text-warning;
+}
+.toast.toast-info {
+    @apply border-info;
+}
+.toast.toast-info::before {
+    @apply bg-info/20;
+}
+.toast.toast-info .toast-close, .toast.toast-info .dyn-toast-close, .toast.toast-info .toast-icon {
+    @apply text-info;
+}

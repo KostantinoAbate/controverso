@@ -1,4 +1,31 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+@plugin "flyonui";
+@plugin "@iconify/tailwind4";
+
+/* Libs */
+@import "tailwindcss-intersect";
+@import "apexcharts/dist/apexcharts.css";
+@import "node-waves/dist/waves.min.css";
+@import "flatpickr/dist/flatpickr.css";
+
+/* Modules */
+@import "./modules/layout.css";
+@import "./modules/typography.css";
+@import "./modules/form.css";
+@import "./modules/patterns.css";
+
+/* Components */
+@import "./components/navbar-menu.css";
+@import "./components/footer-background.css";
+@import "./components/toast.css";
+
+/* Variants */
+@import "flyonui/variants.css";
+@import "flyonui/src/vendor/flatpickr.css";
+@import "flyonui/src/vendor/waves.css";
+@import "flyonui/src/vendor/editor.css";
+
+@source "../node_modules/flyonui/flyonui.js";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -6,6 +33,88 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-display: 'Barriecito', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-primary-50: #fef4f2;
+    --color-primary-100: #fee6e2;
+    --color-primary-200: #fdd3cb;
+    --color-primary-300: #fbb3a6;
+    --color-primary-400: #f68773;
+    --color-primary-500: #ec6047;
+    --color-primary-600: #da492f;
+    --color-primary-700: #b6361f;
+    --color-primary-800: #97301d;
+    --color-primary-900: #7d2d1f;
+    --color-primary-950: #44140b;
+
+    --color-secondary-50: #f9fbfb;
+    --color-secondary-100: #f3f6f6;
+    --color-secondary-200: #e5eaeb;
+    --color-secondary-300: #d1dadb;
+    --color-secondary-400: #9cacaf;
+    --color-secondary-500: #617073;
+    --color-secondary-600: #4c6062;
+    --color-secondary-700: #384d50;
+    --color-secondary-800: #203436;
+    --color-secondary-900: #122226;
+    --color-secondary-950: #030e12;
+
+    --color-accent-50: #eef9ff;
+    --color-accent-100: #d9f0ff;
+    --color-accent-200: #bce5ff;
+    --color-accent-300: #8ed7ff;
+    --color-accent-400: #59beff;
+    --color-accent-500: #339ffe;
+    --color-accent-600: #1c82f4;
+    --color-accent-700: #1569e0;
+    --color-accent-800: #1855b5;
+    --color-accent-900: #194a8f;
+    --color-accent-950: #0c1b33;
 }
+
+@plugin "flyonui/theme" {
+    name: "controverso";
+    default: true;
+    prefersdark: false;
+    color-scheme: "light";
+    --color-base-100: oklch(0.97 0.004 106.47);
+    --color-base-200: oklch(0.93 0.004 106.47);
+    --color-base-300: oklch(0.87 0.004 106.47);
+    --color-base-content: oklch(0.1652 0.0062 285.7);
+    --color-primary: oklch(0.6047 0.1858 32.46);
+    --color-primary-content: oklch(0.97 0.004 106.47);
+    --color-secondary: oklch(0.5338 0.0186 211.08);
+    --color-secondary-content: oklch(0.97 0.004 106.47);
+    --color-accent: oklch(0.2234 0.0514 259.4);
+    --color-accent-content: oklch(0.97 0.004 106.47);
+    --color-neutral: oklch(0.87 0.004 106.47);
+    --color-neutral-content: oklch(0.1652 0.0062 285.7);
+    --color-info: oklch(68.475% 0.094 217.284);
+    --color-info-content: oklch(13.695% 0.018 217.284);
+    --color-success: oklch(0.598 0.136 132.606);
+    --color-success-content: oklch(0.919 0.03 134.406);
+    --color-warning: oklch(71.236% 0.159 52.023);
+    --color-warning-content: oklch(14.247% 0.031 52.023);
+    --color-error: oklch(62.013% 0.208 28.717);
+    --color-error-content: oklch(12.402% 0.041 28.717);
+    --radius-selector: 0.25rem;
+    --radius-field: 0.5rem;
+    --radius-box: 1rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 0.5px;
+    --depth: 1;
+    --noise: 0;
+}
+
+.flatpickr-calendar, .flatpickr-monthDropdown-months, .flatpickr-current-month .flatpickr-monthDropdown-months {
+    @apply bg-base-200!;
+}
+.flatpickr-day {
+    @apply hover:bg-neutral!;
+}
+
+
