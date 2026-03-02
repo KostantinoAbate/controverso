@@ -1,3 +1,12 @@
-.container {
-    @apply w-full max-w-350 px-12 mx-auto;
+main, .main {
+    @apply w-full;
+    padding: calc(var(--spacing) * 24) calc(var(--spacing) * 12) calc(var(--spacing) * 12) calc(var(--spacing) * 12);
+}
+@media screen and (max-width: 1024px) {
+    main, .main {
+        padding: calc(var(--spacing) * 12) calc(var(--spacing) * 6) calc(var(--spacing) * 6) calc(var(--spacing) * 6) !important;
+    }
+}
+section.container {
+    @apply w-full mx-auto max-w-250;
 }

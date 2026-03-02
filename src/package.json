@@ -7,7 +7,7 @@
         "dev": "vite"
     },
     "devDependencies": {
-        "@iconify/json": "^2.2.437",
+        "@iconify/json": "^2.2.440",
         "@iconify/tailwind4": "^1.2.1",
         "@tailwindcss/vite": "^4.0.0",
         "axios": "^1.11.0",
@@ -17,15 +17,7 @@
         "vite": "^7.0.7"
     },
     "dependencies": {
-        "@editorjs/editorjs": "^2.31.1",
-        "apexcharts": "^5.3.6",
-        "flatpickr": "^4.6.13",
         "flyonui": "^2.4.1",
-        "lodash": "^4.17.23",
-        "node-waves": "^0.7.6",
-        "simple-parallax-js": "^6.3.3",
-        "sortablejs": "^1.15.6",
-        "tailwindcss-intersect": "^2.2.0",
-        "tailwindcss-motion": "^1.1.1"
+        "theme-change": "^2.5.0"
     }
 }

@@ -160,9 +160,15 @@
       <path value="$PROJECT_DIR$/src/vendor/paragonie/constant_time_encoding" />
       <path value="$PROJECT_DIR$/src/vendor/composer" />
       <path value="$PROJECT_DIR$/src/vendor/_laravel_idea" />
+      <path value="$PROJECT_DIR$/src/vendor/spatie/image" />
+      <path value="$PROJECT_DIR$/src/vendor/spatie/temporary-directory" />
+      <path value="$PROJECT_DIR$/src/vendor/spatie/laravel-medialibrary" />
+      <path value="$PROJECT_DIR$/src/vendor/spatie/laravel-package-tools" />
+      <path value="$PROJECT_DIR$/src/vendor/spatie/image-optimizer" />
+      <path value="$PROJECT_DIR$/src/vendor/maennchen/zipstream-php" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="8.2">
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.5">
     <option name="suggestChangeDefaultLanguageLevel" value="false" />
   </component>
   <component name="PhpStanOptionsConfiguration">

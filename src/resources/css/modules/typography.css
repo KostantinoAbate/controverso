@@ -1,3 +1,162 @@
-.format {
-    @apply font-sans font-light;
+::selection {
+    @apply bg-primary/80;
 }
+
+article, .article {
+    &.format {
+        @apply font-light;
+        ::selection {
+            @apply bg-accent/80;
+        }
+        h1 {
+            @apply text-8xl;
+        }
+        h2 {
+            @apply text-7xl;
+        }
+        h3 {
+            @apply text-6xl;
+        }
+        h4 {
+            @apply text-5xl;
+        }
+        h5 {
+            @apply text-4xl;
+        }
+        h6 {
+            @apply text-3xl;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            @apply font-display-sans font-medium;
+        }
+        p {
+            @apply font-sans leading-7 my-2 text-lg;
+            a {
+                @apply link link-primary font-light text-lg;
+            }
+        }
+        strong {
+            @apply font-medium;
+        }
+        code {
+            @apply bg-neutral/80 text-neutral-content py-1.5 px-1 rounded;
+            font-size: 95%;
+        }
+        &.format-serif {
+            ::selection {
+                @apply bg-primary/80;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                @apply font-display-serif;
+            }
+            p {
+                @apply font-serif leading-7;
+            }
+            ul, ol {
+                @apply font-serif;
+            }
+            strong {
+                @apply font-bold;
+            }
+            code {
+                font-size: 85%;
+            }
+        }
+        ul {
+            @apply list-inside list-disc p-5 text-lg;
+            ul {
+                @apply p-0 pl-5;
+            }
+        }
+        ol {
+            @apply list-inside list-decimal p-5 text-lg;
+            ol {
+                @apply p-0 pl-5;
+            }
+        }
+    }
+    .text-mark {
+        width: fit-content;
+        padding: 4px 2px;
+        position: relative;
+        text-align: center;
+        white-space: nowrap;
+        &:before {
+            rotate: -1deg;
+            scale: 1.1;
+            transform: skew(-3deg);
+            --mark-color: 242 97 63;
+            --mark-bg-angle: 50deg;
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            border-radius: 3px 5px 3px 5px;
+            background:
+                conic-gradient(at 0 100%, rgb(var(--mark-color) / 100%) 1% , #fff0 3%) no-repeat 0 0 / auto 120%,
+                conic-gradient(from 180deg at 100% 0, #fff0, rgb(var(--mark-color) / 100%) 1%, #fff0 4%) no-repeat 100% 100% / auto 120%,
+                linear-gradient(var(--mark-bg-angle), rgb(var(--mark-color) / 60%), rgb(var(--mark-color) / 20%) 75%, rgb(var(--mark-color) / 55%)) no-repeat center / auto;
+        }
+        &.mark-primary:before {
+            rotate: 1deg;
+            scale: 1.1;
+            transform: skew(-5deg);
+            --mark-color: 242 97 63;
+            --mark-bg-angle: 50deg;
+        }
+        &.mark-accent:before {
+            rotate: 0.5deg;
+            transform: skew(5deg);
+            --mark-color: 210 255 40;
+            --mark-bg-angle: 150deg;
+        }
+    }
+}
+
+.logo {
+    &.logo-default, &.logo-primary {
+        .logo-first {
+            @apply text-base-content;
+        }
+        .logo-second {
+            @apply text-primary;
+            &::selection {
+                @apply bg-base-content;
+            }
+        }
+    }
+    &.logo-secondary {
+        .logo-first {
+            @apply text-base-content;
+        }
+        .logo-second {
+            @apply text-secondary;
+            &::selection {
+                @apply text-base-100 bg-base-content;
+            }
+        }
+    }
+    &.logo-accent {
+        .logo-first {
+            @apply text-base-content;
+            &::selection {
+                @apply bg-accent;
+            }
+        }
+        .logo-second {
+            @apply text-accent;
+            &::selection {
+                @apply bg-base-content;
+            }
+        }
+    }
+    &.logo-inverted {
+        .logo-first {
+            @apply text-base-100;
+        }
+        .logo-second {
+            @apply text-base-content;
+        }
+    }
+}
+

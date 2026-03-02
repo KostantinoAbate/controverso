@@ -20,7 +20,6 @@
     <option name="laravelBasePath" value="src" />
     <option name="translation">
       <LaravelTranslation>
-        <option name="defaultLanguageFromConfig" value="it" />
         <option name="defaultPath" value="lang" />
       </LaravelTranslation>
     </option>

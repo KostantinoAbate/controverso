@@ -1,12 +1,10 @@
-version: "3.9"
-
 services:
   # PHP-FPM / Laravel App
   app:
     build:
       context: .
       dockerfile: Dockerfile
-    image: controverso-php83
+    image: controverso-php85
     container_name: controverso-app
     restart: unless-stopped
     tty: true
